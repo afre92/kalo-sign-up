@@ -1,5 +1,7 @@
 import React from 'react';
-import { StyleSheet, Text, View, TextInput, Button, Image, StatusBar, KeyboardAvoidingView, ScrollView } from 'react-native';
+import { Button, Text, Input  } from 'react-native-elements';
+import Icon from 'react-native-vector-icons/FontAwesome';
+import { StyleSheet, View, TextInput, Image, StatusBar, KeyboardAvoidingView, ScrollView } from 'react-native';
 
 const logo = require("./assets/KALO_COLOR.png");
 
@@ -10,17 +12,32 @@ export default function App() {
     behavior="padding" >
       <View style={{ backgroundColor: '#fff',alignItems: 'center', justifyContent: 'center', flex: 1 }}>
       <StatusBar backgroundColor="#fff" barStyle="light-content" />
-        <View style={{height: 80, width: '100%', backgroundColor: '#83c9ad', display: 'flex', flexDirection: 'column', justifyContent: 'flex-start' }} />
+        <View style={{height: 60, width: '100%', backgroundColor: '#83c9ad', display: 'flex', flexDirection: 'column', justifyContent: 'flex-start' }} />
 
         <View style={styles.container}>
-          <Image source={logo}/>
-          <Text>Sign up for Kalo newslatter!</Text>
-          <TextInput
-            style={{ height: 40, borderColor: 'gray', borderWidth: 1, width: 500 }}
+          <Image source={logo} style={{ width: 200, height: 200, resizeMode: 'contain' }}/>
+          <View style={{paddingTop: 50}}>
+            <Text h4>Sign up for Kalo newslatter!</Text>
+          </View>
+          <View style={{paddingVertical: 30}}>
+          <Input
+            placeholder='your@email.com'
+            containerStyle={{width: 400}}
+            inputStyle={{paddingLeft:20}}
+            // label="Your Email Address"
+            leftIcon={
+              <Icon
+                name='envelope'
+                size={20}
+                color='grey'
+              />
+            }
           />
+          </View>
           <View>
             <Button
               title="Sign up"
+              buttonStyle={{backgroundColor: '#e50062', width: 200}}
               onPress={() => Alert.alert('Simple Button pressed')}
             />
           </View>
